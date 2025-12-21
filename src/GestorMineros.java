@@ -38,7 +38,7 @@ public class GestorMineros {
         Minero minero = new Minero(data, minRango, maxRango, ceros, idTrabajo, gestorConexiones);
         Thread hiloMinero = new Thread(minero);
         hiloMinero.start();
-        // Devolvemos el hilo para guardarlo en la lista de mineros activos
+        // Devolvemos el hilo para guardarlo en la lista de minerosActivos
         return hiloMinero;
     }
 

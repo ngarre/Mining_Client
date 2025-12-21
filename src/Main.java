@@ -7,9 +7,13 @@ public class Main {
         // El cliente inicia estableciendo conexión con el servidor y completando proceso de autenticación (connect + ack)
         GestorConexiones gestorConexiones = new GestorConexiones();
         gestorConexiones.conectarAServidor();
+
         // Se enlazan gestor de conexiones y gestor de mineros para coordinar comunicación y cálculo
         GestorMineros gestorMineros = new GestorMineros(gestorConexiones);
+        // Paso a GestorConexiones el gestorMineros mediante un setter y no con el constructor para que
+        // ambas clases no dependan la una de la otra
         gestorConexiones.setGestorMineros(gestorMineros);
+
         // Hilo para envío periódico de tramas (punto opcional)
         // Temporizador para enviar tramas periódicamente
         Timer temporizador = new Timer();

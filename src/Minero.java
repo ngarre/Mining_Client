@@ -38,15 +38,16 @@ public class Minero implements Runnable {
     }
 
     private int minar() throws NoSuchAlgorithmException {
+        // Obtenemos el algoritmo de hashing que vamos a utilizar
         MessageDigest digest = MessageDigest.getInstance("md5");
 
         for (int i = min; i <= max; i++) {
-            // Comprobamos si el hilo ha sido interrumpido
+            // Comprobamos si el hilo ha sido interrumpido (en GestorMineros y así no seguimos en el bucle innecesariamente)
             if (Thread.interrupted()) {
                 // Finaliza el minado de forma controlada
                 return -1;
             }
-            // Concatena número de prueba dentro del rango (con 3 con tres dígitos y los datos del bloque
+            // Concatena número de prueba dentro del rango (con 3 con tres dígitos) y los datos del bloque
             String msg = String.format("%03d%s", i, data);
             // Introduce el mensaje en el algoritmo de hash MD5
             digest.update(msg.getBytes());

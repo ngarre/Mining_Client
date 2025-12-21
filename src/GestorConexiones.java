@@ -9,14 +9,13 @@ public class GestorConexiones {
     private BufferedReader in; // Recibe mensajes del servidor
     private PrintWriter out; // Envía mensajes al servidor
     private Socket cliente; // Representa la conexión con el servidor
-
-    public String getIdCliente() {
-        return idCliente;
-    }
-
     private String idCliente; // Identificador asignado por el servidor tras el connect
     private GestorMineros gestorMineros; // Podremos iniciar o parar minado según mensajes del servidor
 
+
+    public String getIdCliente() { // Para sacar mensaje por pantalla en GestorMineros
+        return idCliente;
+    }
     public void setGestorMineros(GestorMineros gestorMineros) {
         this.gestorMineros = gestorMineros;
     }
